@@ -1,0 +1,5 @@
+Changelog for FormItLog (for Revolution).
+
+FormItLog 0.0.1
+====================================
+- First commit
