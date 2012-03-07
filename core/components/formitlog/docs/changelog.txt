@@ -1,5 +1,14 @@
 Changelog for FormItLog (for Revolution).
 
+FormItLog 0.0.3
+====================================
+- Add log detail window
+
+FormItLog 0.0.2
+====================================
+- Use processor in hook to add new data
+
+
 FormItLog 0.0.1
 ====================================
 - First commit

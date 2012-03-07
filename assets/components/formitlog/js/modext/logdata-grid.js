@@ -11,7 +11,7 @@ MODx.grid.FormData = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         url: config.connector_url
-        ,fields: ['id','context','subject','name','email','text','clientip','logtime','date','menu']
+        ,fields: ['id','context','subject','name','email','text','json','clientip','logtime','date','menu']
         ,paging: true
         ,autosave: true
         ,remoteSort: false
@@ -92,6 +92,22 @@ Ext.extend(MODx.grid.FormData,MODx.grid.Grid,{
 	
 	/* Update Data */
 	,update: function() {
+
+		/* Get update window */
+		var window = MODx.load({
+			xtype: 'modx-window-formitlogdetail'
+			,title: this.menu.record.subject
+			,url: this.config.connector_url
+			,listeners: {
+				'success': {fn:function(r) {
+					this.refresh();
+				},scope:this}
+			}
+		});
+		/* Set values from current record */
+		window.setValues(this.menu.record);
+
+		window.show(Ext.getBody());				
 		//location.href = 'index.php?a='+MODx.action['controllers/formitlog']+'&id='+this.menu.record.id;
 	}     	
 });

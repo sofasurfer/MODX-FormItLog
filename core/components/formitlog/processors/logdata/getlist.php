@@ -32,6 +32,7 @@
 			$formDataItem			= $value;
 			$formDataItem['id']		= $key;
 			$formDataItem['date']	= date("D, d M Y G:i:s T",$formDataItem['logtime']);
+			$formDataItem['json']	= $modx->toJson( $value );
 
 			$formDataItem['menu'] = array(
 			array(

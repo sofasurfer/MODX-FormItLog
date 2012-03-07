@@ -13,13 +13,16 @@
 	$tstart = $mtime;
 	set_time_limit(0); /* makes sure our script doesnt timeout */
 
-
-	/* define package names */
-	define('PKG_NAME','FormItLog');
-	define('PKG_NAME_LOWER','formitlog');
-	define('PKG_VERSION','0.0.1');
-	define('PKG_RELEASE','beta');	
-
+	/* Get MODX Class */
+	require_once dirname(__FILE__) . '/build.config.php';
+	require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
+	 
+	$modx= new modX();
+	$modx->initialize('mgr');
+	$modx->setLogLevel(modX::LOG_LEVEL_INFO);
+	$modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
+	
+	/* Set resource folders */
 	$root = dirname(dirname(__FILE__)).'/';
 	$sources= array (
 		'root' => $root,
@@ -32,15 +35,6 @@
 		'docs' => $root.'core/components/'.PKG_NAME_LOWER.'/docs/',
 	);
 	unset($root); /* save memory */
-
-	/* Get MODX Class */
-	require_once dirname(__FILE__) . '/build.config.php';
-	require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
-	 
-	$modx= new modX();
-	$modx->initialize('mgr');
-	$modx->setLogLevel(modX::LOG_LEVEL_INFO);
-	$modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 
 	/* Load Package Transporter */
 	$modx->loadClass('transport.modPackageBuilder','',false, true);
@@ -149,7 +143,7 @@
 	$builder->setPackageAttributes(array(
 		'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),	
 		'license' => file_get_contents($sources['docs'] . 'license.txt'),
-		'readme' => file_get_contents($sources['root'] . 'README'),
+		'readme' => file_get_contents($sources['docs'] . 'readme.txt'),
 		'setup-options' => array(
 		    'source' => $sources['build'] . 'setup.options.php'
 		),
