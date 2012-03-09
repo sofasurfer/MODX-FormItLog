@@ -16,5 +16,5 @@
 	/* define package */
 	define('PKG_NAME','FormItLog');
 	define('PKG_NAME_LOWER','formitlog');
-	define('PKG_VERSION','0.0.3');
+	define('PKG_VERSION','0.0.4');
 	define('PKG_RELEASE','beta');

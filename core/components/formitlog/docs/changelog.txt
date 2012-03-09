@@ -1,5 +1,10 @@
 Changelog for FormItLog (for Revolution).
 
+FormItLog 0.0.4
+====================================
+- Fixed log file path if no data directory
+
+
 FormItLog 0.0.3
 ====================================
 - Add log detail window

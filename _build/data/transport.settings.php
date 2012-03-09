@@ -1,6 +1,6 @@
 <?php
 	$s = array(
-		'logfile' => '{assets_path}components/formitlog/data/formitlog.json',
+		'logfile' => '{assets_path}components/formitlog/data.json',
 
 	);
 

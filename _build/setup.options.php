@@ -9,7 +9,7 @@
  
 	/* set some default values */
 	$values = array(
-		'logfile' => '{assets_path}components/formitlog/data/formitlog.json',
+		'logfile' => '{assets_path}components/formitlog/data.json',
 	);
 	switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 		case xPDOTransport::ACTION_INSTALL:
