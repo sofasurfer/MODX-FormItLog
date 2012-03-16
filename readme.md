@@ -35,10 +35,10 @@ For **security** reason it's recommended to add the following rule to your .htac
 <pre>
 
 # to protect formit log file 
-<Files formitlog.json>
+&lt;Files formitlog.json &gt;
 	order allow,deny
 	deny from all
-</Files>
+&lt;/Files&gt;
 
 </pre>
 
