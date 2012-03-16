@@ -1,3 +1,18 @@
+var topic = '/export/';
+var register = 'formitlog';
+var console = MODx.load({
+   xtype: 'modx-console'
+   ,register: register
+   ,topic: topic
+   ,show_filename: 0
+   ,listeners: {
+     'shutdown': {fn:function() {
+         /* do code here when you close the console */
+     },scope:this}
+   }
+});
+
+
 /**
  * Loads the FormData List data grid
  * 
@@ -59,6 +74,26 @@ MODx.grid.FormData = function(config) {
             ,width: 80
             ,sortable: true     
         }]
+		,tbar: [{		
+			xtype: 'textfield'
+			,id: 'modx-filter-search-formitlog'
+			,emptyText: _('search')
+			,listeners: {
+				'change': {fn:this.search,scope:this}
+				,'render': {fn:function(tf) {
+					tf.getEl().addKeyListener(Ext.EventObject.ENTER,function() {
+					this.search(tf);
+					},this);
+				},scope:this}
+			}			
+		},'->',{
+			xtype: 'button'
+			,id: 'modx-button-export-formitlog'
+			,text: _('formitlog.action_export')
+			,listeners: {
+				'click': {fn: this.exportData, scope: this}
+			}			
+		}]        
     });
     MODx.grid.FormData.superclass.constructor.call(this,config);
 };
@@ -110,6 +145,29 @@ Ext.extend(MODx.grid.FormData,MODx.grid.Grid,{
 		window.show(Ext.getBody());				
 		//location.href = 'index.php?a='+MODx.action['controllers/formitlog']+'&id='+this.menu.record.id;
 	}     	
+	
+    /* Export Data */
+    ,exportData: function() {
+
+		/* Fire up console */
+      	console.show(Ext.getBody());
+
+		/* Start export */
+		MODx.Ajax.request({
+			url: this.config.connector_url
+			,params: {
+				action: 'export'
+				,register: register
+				,topic: topic
+			}
+			,listeners: {
+				'success':{fn:function() {
+					console.fireEvent('complete');
+				},scope:this}
+			}
+		});
+
+	}	
 });
 Ext.reg('modx-grid-formitlog',MODx.grid.FormData);
 

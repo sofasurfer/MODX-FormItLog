@@ -54,6 +54,12 @@ Ext.reg('modx-combo-formitlog-type',MODx.combo.FormItLogType);
 			},scope:this}
 		}        
         ,fields: [{
+            fieldLabel: _('formitlog.header_id')
+            ,name: 'id'
+            ,id: 'modx-'+this.ident+'-id'
+            ,xtype: 'textfield'
+            ,hidden: true
+        },{
             fieldLabel: _('formitlog.header_name')
             ,name: 'name'
             ,id: 'modx-'+this.ident+'-name'

@@ -9,7 +9,7 @@
  
 	/* set some default values */
 	$values = array(
-		'logfile' => '{assets_path}components/formitlog/data.json',
+		'logfile' => '{assets_path}components/formitlog/formitlog.json',
 	);
 	switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 		case xPDOTransport::ACTION_INSTALL:
@@ -21,7 +21,7 @@
 		case xPDOTransport::ACTION_UNINSTALL: break;
 	}
 	 
-	$output = '<label for="quip-emailsTo">Path to log file:</label>
+	$output = '<label for="quip-emailsTo">Path to log file (WARNING: this file is accessible from the web, if no access rule is defined):</label>
 	<input type="text" name="logfile" id="formitlog-logfile" width="300" value="'.$values['logfile'].'" />
 	<br /><br />';
 	 

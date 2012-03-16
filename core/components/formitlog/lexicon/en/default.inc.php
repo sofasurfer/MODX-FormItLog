@@ -18,6 +18,9 @@
 
 	$_lang['formitlog.action_update']	= 'Update';
 	$_lang['formitlog.action_delete']	= 'Delete';
+	$_lang['formitlog.action_export']	= 'Export as CSV';
+	$_lang['formitlog.export_success']	= 'Export file is created <a href="[[+url]]" target="_new">[[+exportfile]]</a>.';
+	$_lang['formitlog.create_folder']	= 'Folder created [[+folder]]';
 	$_lang['formitlog.confirm_delete']	= 'Are you sure you want to delete this entry: ';
 	$_lang['formitlog.error_logfile']	= 'The log file [[+logfile]] does not exist or is not writable.';
 	$_lang['formitlog.error_noentry']	= 'No item found with id ([[+itemid]])';

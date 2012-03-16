@@ -3,6 +3,10 @@ Changelog for FormItLog (for Revolution).
 FormItLog 0.0.4
 ====================================
 - Fixed log file path if no data directory
+- Fixed paging of data grid
+- Added sort and search function for data list
+- Allow inline edit for message in log grid
+- Added csv export functionality
 
 
 FormItLog 0.0.3

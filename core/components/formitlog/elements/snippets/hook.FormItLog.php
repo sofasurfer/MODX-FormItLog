@@ -9,10 +9,10 @@
  */
 	    
 
-	/* Get form values */
+	/* Get all form values */
 	$formValues = $hook->getValues();
 	
-	/* Set somae additional values values */	
+	/* Set additional values from snippet properties */	
 	$formValues['email_to'] = $scriptProperties['emailTo'];
 			 	
 

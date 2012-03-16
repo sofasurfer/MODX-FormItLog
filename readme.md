@@ -2,13 +2,14 @@ FormItLog Extra for MODx Revolution
 =================================
 **Author: Kilian Bohnenblust <kilian@sofasurfer.ch>**
 
-- Hook for FormIt Extra to store posted data in a jSon file.
+- Hook for FormIt Extra to store all posted form data in a jSon file.
 - Simple MODX manager to list and edit posted data.
+- CVS export functionality
 
 Installation
 ============
 
-- Install via Package manager (Download Extras -> Search Locally for Packages)
+- Install via Package manager
 
 
 Documentation
@@ -28,6 +29,17 @@ To store FormIt posted data simplye add the **FormItLog** hook to your snippet c
       email:email:required,
       workemail:blank`
 ]]
+</pre>
+
+For **security** reason it's recommended to add the following rule to your .htaccess file, so the log file can't be read from the web.
+<pre>
+
+# to protect formit log file 
+<Files formitlog.json>
+	order allow,deny
+	deny from all
+</Files>
+
 </pre>
 
 Please see the official documentation at:
