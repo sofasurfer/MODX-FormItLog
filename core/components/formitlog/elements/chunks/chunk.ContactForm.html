@@ -1,0 +1,41 @@
+[[!FormIt?
+   &hooks=`spam,FormItLog,email,redirect`
+   &logfile=`[[++formitlog.logfile]]`
+   &emailTo=`[[++emailsender]]`
+   &emailUseFieldForSubject=`1`
+   &successMessage=`Thank You!`
+   &validate=`name:required,
+      text:required,
+      email:email:required,
+      workemail:blank`
+]]
+
+[[!+fi.error_message:notempty=`<p>[[!+fi.error_message]]</p>`]]
+ 
+<form action="[[~[[*id]]]]" method="post" class="form">
+    <input type="hidden" name="nospam:blank" value="" />
+    <input type="hidden" name="workemail" value="" />
+
+    <input type="hidden" name="subject" id="subject" value="Contact inquiry [[++site_name]]" />
+ 
+    <span class="error">[[!+fi.error.name]]</span>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="[[!+fi.name]]" />
+    
+    <span class="error">[[!+fi.error.email]]</span>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" value="[[!+fi.email]]" />
+
+    <span class="error">[[!+fi.error.text]]</span>
+    <textarea name="text" id="text" cols="50" rows="7" value="[[!+fi.text]]">[[!+fi.text]]</textarea>
+ 
+    <br class="clear" />
+    [[!+formit.recaptcha_html]]
+    [[!+fi.error.recaptcha]]
+ 
+    <br class="clear" />
+ 
+    <div class="form-buttons">
+        <input type="submit" value="Send Contact Inquiry" />
+    </div>
+</form>

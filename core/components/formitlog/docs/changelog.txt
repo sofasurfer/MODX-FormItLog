@@ -1,0 +1,23 @@
+Changelog for FormItLog (for Revolution).
+
+FormItLog 0.0.4
+====================================
+- Fixed log file path if no data directory
+- Fixed paging of data grid
+- Added sort and search function for data list
+- Allow inline edit for message in log grid
+- Added csv export functionality
+
+
+FormItLog 0.0.3
+====================================
+- Add log detail window
+
+FormItLog 0.0.2
+====================================
+- Use processor in hook to add new data
+
+
+FormItLog 0.0.1
+====================================
+- First commit
