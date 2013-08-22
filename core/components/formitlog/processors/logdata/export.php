@@ -76,10 +76,14 @@
 				/* Add Item to List */
 				fputcsv($fp, $formDataRow);
 			}
+
+            /* Close csv file */
+			fclose($fp);
 			
 			/* Show confirmation link */
 			$fileUrl = str_replace( $modx->getOption('base_path'),$modx->getOption('base_url'),$exportFile);
 			$modx->log(modX::LOG_LEVEL_INFO, $modx->lexicon('formitlog.export_success',array('exportfile'=>$exportFile, 'url' => $fileUrl)) );
+			
 		}		
 	}else{
 
