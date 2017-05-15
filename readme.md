@@ -41,6 +41,3 @@ For **security** reason it's recommended to add the following rule to your .htac
 &lt;/Files&gt;
 
 </pre>
-
-Please see the official documentation at:
-http://modx.sofasurfer.org/showcase/formitlog/
