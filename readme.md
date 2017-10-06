@@ -10,7 +10,7 @@ Installation
 ============
 
 - Install via Package manager
-
+- Or download from MODX extra page: https://modx.com/extras/package/formitlog
 
 Documentation
 =============
